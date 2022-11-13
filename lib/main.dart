@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fugi_furniture/detail.dart';
+import 'package:fugi_furniture/product.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
@@ -31,9 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  final List<Map> myProducts =
-      List.generate(100000, (index) => {"id": index, "name": "Product $index"})
-          .toList();
+
   static const List<Widget> _views = [
     Center(child: const Text('Content of Tab One')),
     Center(child: const Text('Content of Tab Two')),
@@ -157,14 +156,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 2.2 / 3),
-        itemCount: myProducts.length,
+        itemCount: listproduct.length,
         itemBuilder: (BuildContext ctx, index) {
+          final ProductModel data = listproduct[index];
           return InkWell(
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) =>DetailPage(
-                        data: {'product': myProducts[index]},
+                        data: data,
                       )));
             },
             child: Card(
@@ -176,16 +176,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 children: [
                   Container(
                     height: 180,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage("asset/img.png"),
+                            image: AssetImage(data.image.toString()),
                             fit: BoxFit.cover)),
                   ),
                   Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                     child: Text(
-                      myProducts[index]["name"],
+                      data.name.toString(),
                       style:
                           GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 14)),
                     ),
@@ -196,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Rp ${myProducts[index]["id"]}",
+                          "Rp ${data.price.toString()}",
                           style: GoogleFonts.poppins(
                               textStyle:
                                   const TextStyle(fontSize: 20, color: Colors.grey)),
@@ -210,7 +210,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 color: Colors.yellow,
                               ),
                               Text(
-                                myProducts[index]["id"].toString(),
+                                data.star.toString(),
                                 style: GoogleFonts.poppins(
                                     textStyle: const TextStyle(
                                         fontSize: 12, color: Colors.grey)),
