@@ -28,18 +28,17 @@ class ProductModel {
 List<ProductModel> listproduct = [
   ProductModel(
       id: 1,
-      name: 'Dufan',
+      name: 'Kursi Empuk',
       star: 4.5,
       price: 250,
-      desc:
-          "Dufan atau disebut juga Dunia Fantasi adalah theme park yang terletak di kawasan Taman Impian Jaya Ancol, Jakarta Utara, Indonesia yang diresmikan dan dibuka untuk umum pada tanggal 29 Agustus 1985",
+      desc: "Kursi Empuk Kebanggaan kita semua",
       image: "asset/img.png"),
   ProductModel(
       id: 2,
-      name: 'Dufan',
+      name: 'Kursi Goyang',
       star: 2,
       price: 250,
       desc:
-      "Dufan atau disebut juga Dunia Fantasi adalah theme park yang terletak di kawasan Taman Impian Jaya Ancol, Jakarta Utara, Indonesia yang diresmikan dan dibuka untuk umum pada tanggal 29 Agustus 1985",
+          "Kursi yang bisa goyang ke depan dan kebelakang dibuat seperti anak sendiri",
       image: "asset/img.png"),
 ];

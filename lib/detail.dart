@@ -33,6 +33,9 @@ class _DetailPageState extends State<DetailPage> {
           AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
+            iconTheme: IconThemeData(
+              color: Colors.black, //change your color here
+            ),
             automaticallyImplyLeading: true,
             centerTitle: true,
             actions: [
